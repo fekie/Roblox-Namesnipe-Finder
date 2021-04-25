@@ -9,8 +9,8 @@ import (
 
 func fullScanCycle() {
 	fmt.Println("Enter Word To Check: ")
-    var rawName string
-    fmt.Scanln(&rawName)
+	var rawName string
+	fmt.Scanln(&rawName)
 	combos := generator.ReturnCombos(rawName)
 	validCombos := validator.ReturnValidCombos(combos)
 	fmt.Println("Scan Completed!")
