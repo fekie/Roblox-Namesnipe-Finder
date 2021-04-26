@@ -1,6 +1,6 @@
 # Roblox-Namesnipe-Finder
 
-Roblox-Namesnipe-Finder is a console application that will take a word, generate variations of the word, and then check to see which combos are valid and returns them to you.
+Roblox-Namesnipe-Finder is a console application that will take a word, generate variations of the word, and then check to see which names are valid and returns them to you.
 
 Installation:
 Download either the Windows 10 x86 release or the Linux ARM release.
