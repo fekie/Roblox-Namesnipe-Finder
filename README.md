@@ -9,3 +9,9 @@ Run the exe and it will ask you for a word to check.
 
 Note:
 This is my first project in Go and also my first public repository on Github.
+
+Update:
+I have created a discord bot that uses this system.
+The invite link for one of the servers is https://discord.gg/tPFdYanW5t
+Example:
+!findname elephant
