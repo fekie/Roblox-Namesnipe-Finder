@@ -1,7 +1,7 @@
 package validator
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 	"io/ioutil"
 	"encoding/json"
@@ -28,7 +28,12 @@ func JsonDecode(raw string) map[string]interface{} {
 
 func isNameValid(name string) bool {
 	url := "https://auth.roblox.com/v2/usernames/validate?request.username=" + name + "&request.birthday=2000-05-05T05%3A00%3A00.000Z"
-	code := sendGetRequest(url)["code"]
+	request := sendGetRequest(url)
+	if request == nil {
+		fmt.Println("Failed get request.")
+		return false
+	}
+	code := request["code"]
 	codeInt := int(code.(float64))
 	if codeInt == 0 {
 		return true
@@ -40,11 +45,13 @@ func isNameValid(name string) bool {
 func sendGetRequest(url string) map[string]interface{} {
 	resp, err := http.Get(url)
 	if err != nil {
-		log.Fatalln(err)
+		fmt.Println(err)
+		return nil
 	}
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatalln(err)
+		fmt.Println(err)
+		return nil
 	}
 	//Convert the body to type string
 	sb := string(body)
