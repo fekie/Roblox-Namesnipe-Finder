@@ -17,8 +17,10 @@ func ReplaceChar(rawString string, newChar byte, location int) string {
 }
 
 func InsertChar(rawString string, newChar byte, location int) string {
-	var chars = []byte{}
-	inserted := false
+	var (
+		chars = []byte{}
+		inserted = false
+	)
 	for i := 0; i < (len(rawString) + 1); i++ {
 		if i != location {
 			if !inserted { 
@@ -36,14 +38,12 @@ func InsertChar(rawString string, newChar byte, location int) string {
 
 func CreateFlippedLICombos(rawName string) []string {
 	liPositions := []int{}
-	lower := bytes.ToLower([]byte(rawName))
 	for i := 0; i < len(rawName); i++ {
-		char := lower[i]
+		char := bytes.ToLower([]byte(rawName))[i]
 		if char == 'i' || char == 'l' {
 			liPositions = append(liPositions, i)
 		} 
 	}
-	
 	fCombos := []string{}
 	for i := 0; i < len(liPositions); i++ {
 		charPos := liPositions[i]
